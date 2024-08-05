@@ -1,7 +1,7 @@
 <?php
 require_once("dbConnection.php");
 
-$statement = $pdo->prepare("SELECT * FROM students");
-$statement->execute();
+$query = $pdo->prepare("SELECT * FROM students");
+$query->execute();
 
-$students = $statement->fetchAll();
+$students = $query->fetchAll();
