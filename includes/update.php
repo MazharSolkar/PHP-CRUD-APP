@@ -1,7 +1,7 @@
 <?php
 require_once("dbConnection.php");
 
-if(isset($_POST['id'])) {
+if(isset($_POST['id']) && $_SERVER['REQUEST_METHOD'] == "POST") {
 
     $id = $_POST['id'];
     $name = $_POST['name'];
