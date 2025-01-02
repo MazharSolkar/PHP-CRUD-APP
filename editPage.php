@@ -12,6 +12,9 @@ if(isset($_GET['id'])) {
     // echo "<pre>";
     // print_r($student);
     // echo "</pre>";
+} else {
+    header('Location: index.php');
+    exit();
 }
 ?>
 
