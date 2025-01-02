@@ -8,11 +8,8 @@ if(isset($_POST['id']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     $course = $_POST['course'];
     $city = $_POST['city'];
 
-    $query = $pdo->prepare("UPDATE students SET name= :name, course= :course, city= :city WHERE id=$id;");
-    $query->bindParam(':name', $name);
-    $query->bindParam(':course', $course);
-    $query->bindParam(':city', $city);
-    $query->execute();
+    $query = $pdo->prepare("UPDATE students SET name=?, course=? , city=? WHERE id=?;");
+    $query->execute([$name, $course, $city, $id]);
 
     header("Location: ../index.php");
 }

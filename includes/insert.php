@@ -7,13 +7,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
         $course = $_POST['course'];
         $city = $_POST['city'];
         
-        $query = $pdo->prepare("INSERT INTO students (name, course, city) VALUES (:name, :course, :city);");
-    
-        $query->bindParam(":name", $name);
-        $query->bindParam(":course", $course);
-        $query->bindParam(":city", $city);
-    
-        $query->execute();
+        $query = $pdo->prepare("INSERT INTO students (name, course, city) VALUES (?, ?, ?);");
+        $query->execute([$name,$course,$city]);
     
         header("Location: ../index.php");
         die();

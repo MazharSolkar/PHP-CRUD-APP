@@ -4,9 +4,8 @@ require_once("./includes/dbConnection.php");
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $query = $pdo->prepare("SELECT * FROM students WHERE id= :id");
-    $query->bindParam(':id',$id);
-    $query->execute();
+    $query = $pdo->prepare("SELECT * FROM students WHERE id=?;");
+    $query->execute([$id]);
 
     $student = $query->fetch(PDO::FETCH_ASSOC);
     // echo "<pre>";
