@@ -1,5 +1,10 @@
 <?php
-require_once("./includes/read.php");
+require_once("./includes/dbConnection.php");
+
+$query = $pdo->prepare("SELECT * FROM students");
+$query->execute();
+
+$students = $query->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
