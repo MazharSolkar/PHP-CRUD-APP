@@ -3,7 +3,7 @@
 require_once('dbConnection.php');
 if($_SERVER['REQUEST_METHOD'] === "POST" && (isset($_POST['id']))) {
     try {
-        $id = $_POST['id'];
+        $id = htmlspecialchars($_POST['id']);
 
         $query = $pdo->prepare("DELETE FROM students WHERE id=?");
         $query->execute([$id]);

@@ -2,7 +2,7 @@
 require_once("./includes/dbConnection.php");
 
 if(isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = htmlspecialchars($_GET['id']);
 
     $query = $pdo->prepare("SELECT * FROM students WHERE id=?;");
     $query->execute([$id]);
